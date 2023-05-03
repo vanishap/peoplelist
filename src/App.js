@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 
+
+const people = [
+  {name:'vanisha', age:38},
+  {name:'Madhan', age:42},
+  {name:'Deekshi', age:10},
+  {name:'Laasya', age:14},
+  {name:'Karthik', age:9},
+];
+
 function App() {
+  //make an unordered list of people from youngest to oldest
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>LIst of people from youngest to oldest</h3>
+      <ul>
+        {people.sort((a,b)=>a.age-b.age).map((person)=> {
+            return <li key={`${person.name}- ${Math.floor(Math.random)}` } >
+              <p>Name: {person.name}</p>
+              <p>Age: {person.age}</p> </li>
+      })}
+      </ul>
+      
     </div>
   );
 }
